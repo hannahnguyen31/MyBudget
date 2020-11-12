@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBudget", "MyBudget\MyBudget.csproj", "{53152BC7-9C3D-45C5-ABAE-EF856FAE34F2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53152BC7-9C3D-45C5-ABAE-EF856FAE34F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53152BC7-9C3D-45C5-ABAE-EF856FAE34F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53152BC7-9C3D-45C5-ABAE-EF856FAE34F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53152BC7-9C3D-45C5-ABAE-EF856FAE34F2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6F633BC7-D6C5-4588-8AE5-420DC8727D03}
+	EndGlobalSection
+EndGlobal

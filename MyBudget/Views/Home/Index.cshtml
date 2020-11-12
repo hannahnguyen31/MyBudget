@@ -1,0 +1,48 @@
+﻿@model List<Budget>
+
+@{
+
+    ViewBag.Title = "My Budgets";
+}
+
+<h2> My Budget</h2>
+<a asp-controller="Functionality" asp-action="Add">Add New Category</a>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th> Category</th>
+            <th>Budgeted</th>
+            <th>Activity</th>
+            <th>Available</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var budget in Model)
+        {
+            <tr>
+                <td>@budget.Category</td>
+                <td>@budget.Budgeted</td>
+                <td>@budget.Activity</td>
+                <td>@budget.Available</td>
+                <td>
+                    <a asp-controller="Functionality" asp-action="Edit" asp-route-id="@budget.BudgetID">Edit</a>
+                    <a asp-controller="Functionality" asp-action="Delete" asp-route-id="@budget.BudgetID">Delete</a>
+                </td>
+            </tr>
+
+        }
+    <tr>
+        <td> Total</td>
+        <td> Total</td>
+        <td> Total</td>
+        <td> Total</td>
+        <td></td>
+
+    </tr>
+    </tbody>
+</table>
+
+
+
+

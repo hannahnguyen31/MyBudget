@@ -1,0 +1,13 @@
+﻿@model Income
+
+@{
+    ViewBag.Title = "Delete Income";
+}
+
+<h3>Do you want to delete this Income permanently</h3>
+<h3>@Model.IncomeSource (@Model.Amount)</h3>
+<form asp-action="DeleteIncome" method="post">
+    <input type="hidden" asp-for="IncomeID">
+    <button type="submit" class="btn btn-primary">Delete</button>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Cancel</a>
+</form>
