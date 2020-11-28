@@ -25,6 +25,7 @@
                 <td>@budget.Budgeted</td>
                 <td>@budget.Activity</td>
                 <td>@budget.Available</td>
+                            
                 <td>
                     <a asp-controller="Functionality" asp-action="Edit" asp-route-id="@budget.BudgetID">Edit</a>
                     <a asp-controller="Functionality" asp-action="Delete" asp-route-id="@budget.BudgetID">Delete</a>
@@ -34,9 +35,9 @@
         }
     <tr>
         <td> Total</td>
-        <td> Total</td>
-        <td> Total</td>
-        <td> Total</td>
+        <td> @Model.Sum(i=>i.Budgeted)</td>
+        <td> @Model.Sum(i=>i.Activity)</td>
+        <td> @Model.Sum(i=>i.Available)</td>
         <td></td>
 
     </tr>
