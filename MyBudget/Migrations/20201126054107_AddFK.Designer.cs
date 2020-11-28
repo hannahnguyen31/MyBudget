@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyBudget.Data;
 
-namespace MyBudget.Data.Migrations
+namespace MyBudget.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201126054107_AddFK")]
+    partial class AddFK
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -244,8 +246,8 @@ namespace MyBudget.Data.Migrations
                     b.Property<string>("IdentityUserID")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<DateTime>("Month")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("Month")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("BudgetID");
 
@@ -261,7 +263,7 @@ namespace MyBudget.Data.Migrations
                             Available = 0f,
                             Budgeted = 2000f,
                             Category = "Mortgate",
-                            Month = new DateTime(2020, 10, 3, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            Month = "2020/10/08"
                         },
                         new
                         {
@@ -270,7 +272,7 @@ namespace MyBudget.Data.Migrations
                             Available = 200f,
                             Budgeted = 1000f,
                             Category = "Food",
-                            Month = new DateTime(2020, 11, 23, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            Month = "2020/11/09"
                         },
                         new
                         {
@@ -279,7 +281,7 @@ namespace MyBudget.Data.Migrations
                             Available = 50f,
                             Budgeted = 200f,
                             Category = "Utilities",
-                            Month = new DateTime(2020, 9, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            Month = "2020/11/09"
                         });
                 });
 
@@ -297,8 +299,8 @@ namespace MyBudget.Data.Migrations
                     b.Property<string>("IdentityUserID")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<DateTime>("IncomeMonth")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("IncomeMonth")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("IncomeSource")
                         .IsRequired()
@@ -315,21 +317,21 @@ namespace MyBudget.Data.Migrations
                         {
                             IncomeID = 5,
                             Amount = 2000f,
-                            IncomeMonth = new DateTime(2020, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IncomeMonth = "2020/10/08",
                             IncomeSource = "Salary"
                         },
                         new
                         {
                             IncomeID = 6,
                             Amount = 1000f,
-                            IncomeMonth = new DateTime(2020, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IncomeMonth = "2020/10/08",
                             IncomeSource = "Rent out house"
                         },
                         new
                         {
                             IncomeID = 7,
                             Amount = 600f,
-                            IncomeMonth = new DateTime(2020, 11, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IncomeMonth = "2020/10/08",
                             IncomeSource = "Stock divided"
                         });
                 });

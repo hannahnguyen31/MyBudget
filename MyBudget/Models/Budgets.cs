@@ -29,6 +29,11 @@ namespace MyBudget.Models
 
         public float Available { get; set; }
 
-        public string Month { get; set; }
+        public DateTime Month { get; set; }
+
+        public string IdentityUserID { get; set; }
+
+        public Microsoft.AspNetCore.Identity.IdentityUser IdentityUser
+        { get; set; }
     }
 }

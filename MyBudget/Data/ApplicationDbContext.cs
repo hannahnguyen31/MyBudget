@@ -28,7 +28,7 @@ namespace MyBudget.Data
                     Budgeted = 2000,
                     Activity = 2000,
                     Available = 0,
-                    Month = "2020/10/08"
+                    Month = DateTime.Parse("2020-10-03")
                 },
                 new Budget
                 {
@@ -37,7 +37,7 @@ namespace MyBudget.Data
                     Budgeted = 1000,
                     Activity = 800,
                     Available = 200,
-                    Month = "2020/11/09"
+                    Month = DateTime.Parse("2020-11-23")
                 },
                 new Budget
                 {
@@ -46,7 +46,7 @@ namespace MyBudget.Data
                     Budgeted = 200,
                     Activity = 150,
                     Available = 50,
-                    Month = "2020/11/09"
+                    Month = DateTime.Parse("2020-09-27")
                 }
 
                 );
@@ -57,21 +57,21 @@ namespace MyBudget.Data
                     IncomeID = 5,
                     IncomeSource = "Salary",
                     Amount = 2000,
-                    IncomeMonth = "2020/10/08"
+                    IncomeMonth = DateTime.Parse("2020-11-25")
                 },
                 new Income
                 {
                     IncomeID = 6,
                     IncomeSource = "Rent out house",
                     Amount = 1000,
-                    IncomeMonth = "2020/10/08"
+                    IncomeMonth = DateTime.Parse("2020-10-02")
                 },
                 new Income
                 {
                     IncomeID = 7,
                     IncomeSource = "Stock divided",
                     Amount = 600,
-                    IncomeMonth = "2020/10/08"
+                    IncomeMonth = DateTime.Parse("2020-11-01")
                 }
 
                 );

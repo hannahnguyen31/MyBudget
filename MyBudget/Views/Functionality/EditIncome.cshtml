@@ -1,7 +1,7 @@
 ﻿@model Income
 
 @{
-    string title = ViewBag.Action + " " + "Income";
+    string title = ViewBag.Action ;
     ViewBag.Title = title;
 }
 
@@ -14,7 +14,7 @@
         <input asp-for="IncomeSource" class="form-control">
     </div>
     <div class="form-group">
-        <label asp-for="Amount">Budgeted</label>
+        <label asp-for="Amount">Amount</label>
         <input asp-for="Amount" class="form-control">
     </div>
     
