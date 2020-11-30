@@ -14,6 +14,7 @@
             <th>Budgeted</th>
             <th>Activity</th>
             <th>Available</th>
+            <th>Date</th>
             <th></th>
         </tr>
     </thead>
@@ -25,6 +26,7 @@
                 <td>@budget.Budgeted</td>
                 <td>@budget.Activity</td>
                 <td>@budget.Available</td>
+                <td>@budget.Month</td>
                             
                 <td>
                     <a asp-controller="Functionality" asp-action="Edit" asp-route-id="@budget.BudgetID">Edit</a>
@@ -38,6 +40,7 @@
         <td> @Model.Sum(i=>i.Budgeted)</td>
         <td> @Model.Sum(i=>i.Activity)</td>
         <td> @Model.Sum(i=>i.Available)</td>
+        <td></td>
         <td></td>
 
     </tr>
