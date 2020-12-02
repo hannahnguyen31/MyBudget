@@ -41,7 +41,9 @@ namespace MyBudget.Controllers
 
         public IActionResult Income()
         {
-            var incomes = MyContext.incomes.OrderBy(m => m.IncomeSource).ToList();
+           //var incomes = MyContext.incomes.OrderBy(m => m.IncomeSource).ToList();
+            var incomes = MyContext.incomes.FromSqlRaw("select * from incomes where MONTH(IncomeMonth) = '12'").ToList();
+
 
             return View(incomes);
         }
@@ -49,7 +51,6 @@ namespace MyBudget.Controllers
         public IActionResult Goal()
         {
             var goals = MyContext.Goals.OrderBy(m => m.GoalMonth).ToList();
-
             return View(goals);
 
         }
@@ -57,6 +58,8 @@ namespace MyBudget.Controllers
         
         public IActionResult Report()
         {
+            
+
             return View();
         }
 

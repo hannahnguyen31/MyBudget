@@ -24,7 +24,7 @@
             <tr>
                 <td>@income.IncomeSource</td>
                 <td>@income.Amount</td>
-                <td>@income.IncomeMonth</td>
+                <td>@income.IncomeMonth.ToString(string.Format("dd/MM/yyyy"))</td>
                 <td>
                     <a asp-controller="Functionality" asp-action="EditIncome" asp-route-id="@income.IncomeID">Edit</a>
                     <a asp-controller="Functionality" asp-action="DeleteIncome" asp-route-id="@income.IncomeID">Delete</a>

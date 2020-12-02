@@ -26,7 +26,7 @@
                 <td>@budget.Budgeted</td>
                 <td>@budget.Activity</td>
                 <td>@budget.Available</td>
-                <td>@budget.Month</td>
+                <td>@budget.Month.ToString(string.Format("dd/MM/yyyy"))</td>
 
                 <td>
                     <a asp-controller="Functionality" asp-action="Edit" asp-route-id="@budget.BudgetID">Edit</a>

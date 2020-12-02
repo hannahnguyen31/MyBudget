@@ -21,7 +21,7 @@
         @foreach (var goal in Model)
         {
         <tr>
-            <td>@goal.GoalMonth</td>
+            <td>@goal.GoalMonth.ToString(string.Format("MM/yyyy"))</td>
             <td>@goal.IncomeGoal</td>
             <td>@goal.BudgetGoal</td>
             <td>@goal.SavingGoal</td>
