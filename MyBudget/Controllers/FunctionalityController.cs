@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MyBudget.Data;
 using MyBudget.Models;
 
@@ -30,7 +31,14 @@ namespace MyBudget.Controllers
             ViewBag.action = "Add Income";
             return View("EditIncome", new Income());
         }
-           
+
+        [HttpGet]
+        public IActionResult AddGoal()
+        {
+            ViewBag.action = "Add Goal";
+            return View("EditGoal", new Goal());
+        }
+
 
         [HttpGet]
         public IActionResult Edit(int id)
@@ -40,6 +48,7 @@ namespace MyBudget.Controllers
             return View(budget);
         }
 
+       
         [HttpGet]
         public IActionResult EditIncome(int id)
         {
@@ -47,7 +56,15 @@ namespace MyBudget.Controllers
             var income = MyContext.incomes.Find(id);
             return View(income);
         }
-        
+
+        [HttpGet]
+        public IActionResult EditGoal(int id)
+        {
+            ViewBag.action = "Edit Goal";
+            var goal = MyContext.Goals.Find(id);
+            return View(goal);
+        }
+
 
         [HttpPost]
         public IActionResult Edit(Budget budget)
@@ -98,6 +115,30 @@ namespace MyBudget.Controllers
             }
 
         }
+        [HttpPost]
+        public IActionResult EditGoal(Goal goal)
+        {
+            if (ModelState.IsValid)
+            {
+                if (goal.GoalID == 0)
+                {
+                    MyContext.Goals.Add(goal);
+                }
+                else
+
+                    MyContext.Goals.Update(goal);
+                MyContext.SaveChanges();
+                return RedirectToAction("Goal", "Home");
+
+            }
+            else
+            {
+                ViewBag.action = (goal.GoalID == 0) ? "AddGoal" : "EditGoal";
+                return View(goal);
+
+            }
+
+        }
 
 
         [HttpGet]
@@ -115,7 +156,16 @@ namespace MyBudget.Controllers
             var income = MyContext.incomes.Find(id);
             return View(income);
         }
-          
+
+
+        [HttpGet]
+        public IActionResult DeleteGoal(int id)
+        {
+            ViewBag.action = "DeleteGoal";
+            var goal = MyContext.Goals.Find(id);
+            return View(goal);
+        }
+
 
 
         [HttpPost]
@@ -134,6 +184,16 @@ namespace MyBudget.Controllers
             MyContext.SaveChanges();
             return RedirectToAction( "Income", "Home");
         }
+
+        [HttpPost]
+        public IActionResult DeleteGoal(Goal goal)
+        {
+            MyContext.Goals.Remove(goal);
+            MyContext.SaveChanges();
+            return RedirectToAction("Goal", "Home");
+        }
+
+
 
     }
 }

@@ -16,7 +16,7 @@ namespace MyBudget.Data
 
         public DbSet<Budget> Budgets { get; set; }
         public DbSet<Income> incomes { get; set; }
-      
+        public DbSet<Goal> Goals { get; set; }
         protected override void OnModelCreating(ModelBuilder myModelBuilder)
         {
             base.OnModelCreating(myModelBuilder);

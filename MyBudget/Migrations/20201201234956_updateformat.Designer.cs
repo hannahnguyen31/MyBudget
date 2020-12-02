@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyBudget.Data;
 
-namespace MyBudget.Data.Migrations
+namespace MyBudget.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201201234956_updateformat")]
+    partial class updateformat
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -283,37 +285,6 @@ namespace MyBudget.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("MyBudget.Models.Goal", b =>
-                {
-                    b.Property<int>("GoalID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<float?>("BudgetGoal")
-                        .IsRequired()
-                        .HasColumnType("real");
-
-                    b.Property<DateTime>("GoalMonth")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("IdentityUserID")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<float>("IncomeGoal")
-                        .HasColumnType("real");
-
-                    b.Property<float?>("SavingGoal")
-                        .IsRequired()
-                        .HasColumnType("real");
-
-                    b.HasKey("GoalID");
-
-                    b.HasIndex("IdentityUserID");
-
-                    b.ToTable("Goals");
-                });
-
             modelBuilder.Entity("MyBudget.Models.Income", b =>
                 {
                     b.Property<int>("IncomeID")
@@ -417,13 +388,6 @@ namespace MyBudget.Data.Migrations
                 });
 
             modelBuilder.Entity("MyBudget.Models.Budget", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
-                        .WithMany()
-                        .HasForeignKey("IdentityUserID");
-                });
-
-            modelBuilder.Entity("MyBudget.Models.Goal", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
                         .WithMany()

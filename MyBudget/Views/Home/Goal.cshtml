@@ -1,0 +1,51 @@
+﻿@model List<Goal>
+
+@{
+
+    ViewBag.Title = "My Goal";
+}
+<h2> My Goals</h2>
+<input type ="month" />
+<a asp-controller="Functionality" asp-action="AddGoal">Add New Category</a>
+<table class="table table-bordered  table-hover table-primary">
+    <thead>
+        <tr>
+            <th>Month</th>
+            <th>Income</th>
+            <th>Budgeted</th>
+            <th>Saving</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var goal in Model)
+        {
+        <tr>
+            <td>@goal.GoalMonth</td>
+            <td>@goal.IncomeGoal</td>
+            <td>@goal.BudgetGoal</td>
+            <td>@goal.SavingGoal</td>
+        
+
+            <td>
+                <a asp-controller="Functionality" asp-action="EditGoal" asp-route-id="@goal.GoalID">Edit</a>
+                <a asp-controller="Functionality" asp-action="DeleteGoal" asp-route-id="@goal.GoalID">Delete</a>
+            </td>
+        </tr>
+
+        }
+        <tr class="font-weight-bold">
+            <td> Total</td>
+            <td> @Model.Sum(i => i.IncomeGoal)</td>
+            <td> @Model.Sum(i => i.BudgetGoal)</td>
+            <td> @Model.Sum(i => i.SavingGoal)</td>
+            <td></td>
+           
+
+        </tr>
+    </tbody>
+</table>
+
+
+
+

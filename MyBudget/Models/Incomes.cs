@@ -17,6 +17,8 @@ namespace MyBudget.Models
         [Range(0,1000000, ErrorMessage ="Posible value from 0 to 1000000")]
         public float? Amount{ get; set; }
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime IncomeMonth { get; set; }
 
         public string IdentityUserID { get; set; }

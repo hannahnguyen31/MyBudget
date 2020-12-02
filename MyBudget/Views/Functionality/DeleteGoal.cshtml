@@ -1,0 +1,12 @@
+﻿@model Goal
+
+@{
+    ViewBag.Title = "Delete Goals";
+}
+
+<h3>Do you want to delete this Goal permanently</h3>
+<form asp-action="DeleteGoal" method="post">
+    <input type="hidden" asp-for="GoalID">
+    <button type="submit" class="btn btn-primary">Delete</button>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Cancel</a>
+</form>

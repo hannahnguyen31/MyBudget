@@ -4,10 +4,10 @@
 
     ViewBag.Title = "My Budgets";
 }
-
 <h2> My Budget</h2>
+<input type="month" />
 <a asp-controller="Functionality" asp-action="Add">Add New Category</a>
-<table class="table table-bordered table-striped">
+<table class="table table-bordered  table-hover table-primary">
     <thead>
         <tr>
             <th> Category</th>
@@ -27,7 +27,7 @@
                 <td>@budget.Activity</td>
                 <td>@budget.Available</td>
                 <td>@budget.Month</td>
-                            
+
                 <td>
                     <a asp-controller="Functionality" asp-action="Edit" asp-route-id="@budget.BudgetID">Edit</a>
                     <a asp-controller="Functionality" asp-action="Delete" asp-route-id="@budget.BudgetID">Delete</a>
@@ -35,15 +35,15 @@
             </tr>
 
         }
-    <tr>
-        <td> Total</td>
-        <td> @Model.Sum(i=>i.Budgeted)</td>
-        <td> @Model.Sum(i=>i.Activity)</td>
-        <td> @Model.Sum(i=>i.Available)</td>
-        <td></td>
-        <td></td>
+        <tr class="font-weight-bold">
+            <td> Total</td>
+            <td> @Model.Sum(i => i.Budgeted)</td>
+            <td> @Model.Sum(i => i.Activity)</td>
+            <td> @Model.Sum(i => i.Available)</td>
+            <td></td>
+            <td></td>
 
-    </tr>
+        </tr>
     </tbody>
 </table>
 

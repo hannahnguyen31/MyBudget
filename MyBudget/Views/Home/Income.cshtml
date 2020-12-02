@@ -7,8 +7,9 @@
 }
 
 <h2> My Income</h2>
+<input type="month" />
 <a asp-controller="Functionality" asp-action="AddIncome">Add New Income</a>
-<table class="table table-bordered table-striped">
+<table class="table table-bordered table-hover table-primary">
     <thead>
         <tr>
             <th> Income Resources</th>
@@ -31,7 +32,7 @@
             </tr>
 
         }
-        <tr>
+        <tr class="font-weight-bold">
             <td> Total</td>
             <td> @Model.Sum(i=>i.Amount)</td>         
             <td></td>
